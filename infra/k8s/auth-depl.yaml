@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: chend/auth
+          image: chendrix1123/auth
 ---
 apiVersion: v1
 kind: Service
