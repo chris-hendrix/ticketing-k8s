@@ -3,7 +3,7 @@
 1. Start docker with kubernetes running
 2. Run the following command
 ```
-skaffold run
+skaffold dev
 ```
 ### Setting up dev route
 1. Add this line to your `hosts` file as admin
