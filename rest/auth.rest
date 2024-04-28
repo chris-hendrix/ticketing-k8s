@@ -1,0 +1,13 @@
+@url = ticketing.dev/api/users
+### https://ticketing.dev/api/users/currentuser
+###
+GET {{url}}/currentuser
+
+### 
+POST {{url}}/signup
+Content-Type: application/json
+
+{
+    "email": "test&@test.com",
+    "password": "1"
+}
