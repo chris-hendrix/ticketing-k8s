@@ -1,5 +1,5 @@
 @url = ticketing.dev/api/users
-
+### https://ticketing.dev/api/users/currentuser
 ###
 GET {{url}}/currentuser
 
