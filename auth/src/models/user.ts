@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
-import { Password } from '../services/password'
+import mongoose from 'mongoose';
+import { Password } from '../services/password';
 
 // Properties required to create a new User
 interface UserAttrs {
@@ -36,11 +36,11 @@ userSchema.pre('save', async function (done) {
     this.set('password', hashed);
   }
   done();
-})
+});
 
 userSchema.statics.build = (attrs: UserAttrs) => {
   return new User(attrs);
-}
+};
 
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
 
