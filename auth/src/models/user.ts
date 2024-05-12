@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
-import { Password } from '../services/password'
+import mongoose from 'mongoose';
+import { Password } from '../services/password';
 
 // Properties required to create a new User
 interface UserAttrs {
@@ -30,17 +30,27 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+// Define a toJSON transformation to customize the JSON representation of the document
+userSchema.set('toJSON', {
+  transform: function (doc, ret) {
+    delete ret.password;
+    delete ret.__v;
+    ret.id = ret._id;
+    delete ret._id;
+  }
+});
+
 userSchema.pre('save', async function (done) {
   if (this.isModified('password')) {
     const hashed = await Password.toHash(this.get('password'));
     this.set('password', hashed);
   }
   done();
-})
+});
 
 userSchema.statics.build = (attrs: UserAttrs) => {
   return new User(attrs);
-}
+};
 
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
 
