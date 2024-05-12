@@ -30,6 +30,16 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+// Define a toJSON transformation to customize the JSON representation of the document
+userSchema.set('toJSON', {
+  transform: function (doc, ret) {
+    delete ret.password;
+    delete ret.__v;
+    ret.id = ret._id;
+    delete ret._id;
+  }
+});
+
 userSchema.pre('save', async function (done) {
   if (this.isModified('password')) {
     const hashed = await Password.toHash(this.get('password'));

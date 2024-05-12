@@ -8,6 +8,6 @@ POST {{url}}/signup
 Content-Type: application/json
 
 {
-    "email": "test1&@test.com",
+    "email": "test12&@test.com",
     "password": "12341234"
 }
