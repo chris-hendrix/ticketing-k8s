@@ -1,7 +1,13 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
-import mongoose, { ConnectOptions } from 'mongoose';
+import mongoose from 'mongoose';
+import request from 'supertest';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+import { app } from '../app';
+
+declare global {
+  function signin(): Promise<string[]>;
+}
+
 let mongo: MongoMemoryServer;
 
 beforeAll(async () => {
@@ -9,10 +15,7 @@ beforeAll(async () => {
   mongo = await MongoMemoryServer.create();
   const mongoUri = await mongo.getUri();
 
-  await mongoose.connect(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  } as ConnectOptions);
+  await mongoose.connect(mongoUri);
 });
 
 beforeEach(async () => {
@@ -27,3 +30,18 @@ afterAll(async () => {
   await mongoose.connection.close();
   await mongo.stop();
 });
+
+
+
+global.signin = async () => {
+  const email = 'test@test.com';
+  const password = 'password';
+
+  const response = await request(app)
+    .post('/api/users/signup')
+    .send({ email, password })
+    .expect(201);
+
+  const cookie = response.get('Set-Cookie');
+  return cookie || [];
+};
