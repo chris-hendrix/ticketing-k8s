@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './globals.css'
+import './globals.css';
 
 export const metadata = {
   title: 'Next.js',
