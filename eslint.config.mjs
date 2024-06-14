@@ -20,7 +20,8 @@ export default [
   },
   // Overrides for client folder with React
   {
-    files: ['client/app/**/*.{js,jsx}'],
+    files: ['**/*.js', '**/*.jsx'],
+    // ignorePatterns: ['.next/**/*', 'node_modules/**/*'],
     languageOptions: { globals: globals.browser },
     ...pluginJs.configs.recommended,
     ...pluginReactConfig,
