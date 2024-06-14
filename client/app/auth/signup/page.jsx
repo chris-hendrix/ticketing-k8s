@@ -1,21 +1,23 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import useRequest from '../../../hooks/useRequest';
 
 export default () => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { doRequest, errors } = useRequest({
     url: '/api/users/signup',
     method: 'post',
     body: { email, password },
-    onSuccess: () => console.log('User created')
+    onSuccess: () => router.push('/')
   });
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    await doRequest();
+    doRequest();
   };
 
   return (
