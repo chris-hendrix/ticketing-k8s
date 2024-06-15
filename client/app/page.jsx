@@ -1,21 +1,9 @@
-import axios from 'axios';
+import buildClient from '../util/build-client';
 
 const fetchCurrentUser = async () => {
-  if (typeof window === 'undefined') {
-    // server side request
-    const { data } = await axios.get(
-      'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser', {
-      headers: {
-        Host: 'ticketing.dev'
-      }
-    });
-    return data;
-  } else {
-    // client side request
-    const { data } = await axios.get('/api/users/currentuser');
-    return data;
-  }
-
+  const client = buildClient();
+  const { data } = await client.get('/api/users/currentuser');
+  return data;
 };
 
 const LandingPage = async () => {
