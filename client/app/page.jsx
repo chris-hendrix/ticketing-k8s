@@ -1,17 +1,13 @@
-import buildClient from '../util/build-client';
-
-const fetchCurrentUser = async () => {
-  const client = buildClient();
-  const { data } = await client.get('/api/users/currentuser');
-  return data;
-};
+import getCurrentUser from '../util/get-current-user';
 
 const LandingPage = async () => {
-  const currentUser = await fetchCurrentUser();
-  console.log({ currentUser });
+  const currentUser = await getCurrentUser();
+  if (currentUser) {
+    return <h1>You are signed in</h1>;
+  }
   return (
     <div>
-      <h1>Landing2</h1>
+      <h1>You are NOT signed in</h1>
     </div>
   );
 };
