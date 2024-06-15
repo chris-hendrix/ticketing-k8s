@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import useRequest from '../../../hooks/useRequest';
+import useRequest from '../../../hooks/use-request';
 
 export default () => {
   const router = useRouter();
