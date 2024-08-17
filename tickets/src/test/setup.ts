@@ -32,7 +32,7 @@ afterAll(async () => {
 
 
 global.signinMock = () => {
-  const payload = { email: 'test@test.com', password: 'password' };
+  const payload = { email: 'test@test.com', id: '12341234' };
   const token = jwt.sign(payload, process.env.JWT_KEY!);
   const session = { jwt: token };
   const sessionJSON = JSON.stringify(session);
