@@ -1,11 +1,11 @@
-@url = ticketing.dev/api/tickets
+@url = ticketing.dev/api
 @email = user123@test.com
 @password = 12341234
 
-@cookie = session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkyWXpJME5HUXdNbVJqTUdaaE56SmlNelJoTVRjNU9TSXNJbVZ0WVdsc0lqb2lkWE5sY2pFeU0wQjBaWE4wTG1OdmJTSXNJbWxoZENJNk1UY3lOREF3TnpZek1uMC5JOUFNS2ZqTUx3bUppNG1EaTFQSGwyS1hfdE9ZMkNlUUxqUml6Q29FbDQ4In0=; path=/; secure; httponly
+@cookie = session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkyWkdObE5qazNNV0V6TmpWaE5URmpNekJrWVRsalpDSXNJbVZ0WVdsc0lqb2lkWE5sY2pFeU0wQjBaWE4wTG1OdmJTSXNJbWxoZENJNk1UY3lOVGMxTWprNE0zMC4wYzduYTEtT1MtVHdrdURfaEN0ZFRGb2VIcXJzbHVEY0x4OS1ZRURUVUprIn0=; path=/; secure; httponly
 
 ### POST signup
-POST {{url}}/signup
+POST {{url}}/users/signup
 Content-Type: application/json
 
 {
@@ -14,10 +14,10 @@ Content-Type: application/json
 }
 
 ### GET tickets
-GET {{url}}
+GET {{url}}/tickets
 
 ### POST ticket
-POST {{url}}
+POST {{url}}/tickets
 Cookie: {{cookie}}
 Content-Type: application/json
 
