@@ -2,7 +2,7 @@
 @email = user123@test.com
 @password = 12341234
 
-@cookie = session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkyWkdObE5qazNNV0V6TmpWaE5URmpNekJrWVRsalpDSXNJbVZ0WVdsc0lqb2lkWE5sY2pFeU0wQjBaWE4wTG1OdmJTSXNJbWxoZENJNk1UY3lOVGMxTWprNE0zMC4wYzduYTEtT1MtVHdrdURfaEN0ZFRGb2VIcXJzbHVEY0x4OS1ZRURUVUprIn0=; path=/; secure; httponly
+@cookie = session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkzTVdGaU1qTmhaakZoTXpGa01USTRPREkwTTJWaU1pSXNJbVZ0WVdsc0lqb2lkWE5sY2pFeU0wQjBaWE4wTG1OdmJTSXNJbWxoZENJNk1UY3lPVGd3TWpneE1IMC51OEhtLTJINGpmNjhET3dfaFRUZXJpRHhGSC03RWRUY3FRM1JhZlFQYXJZIn0=; path=/; secure; httponly
 
 ### POST signup
 POST {{url}}/users/signup
