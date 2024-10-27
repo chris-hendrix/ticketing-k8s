@@ -49,5 +49,3 @@ it('fetches orders for a particular user', async () => {
   expect(response.body[1].id).toEqual(orderTwo.id);
 });
 
-it.todo('emits an order created event');
-
