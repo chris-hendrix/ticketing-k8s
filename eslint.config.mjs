@@ -16,6 +16,7 @@ export default [
         'error',
         { 'argsIgnorePattern': '^_', 'varsIgnorePattern': '^_', 'caughtErrorsIgnorePattern': '^_' },
       ],
+      '@typescript-eslint/ban-ts-comment': 'off', // allows ts-ignore
     },
   },
   // Overrides for client folder with React
