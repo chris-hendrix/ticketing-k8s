@@ -5,6 +5,7 @@ import {
   NotFoundError,
   requireAuth,
   NotAuthorizedError,
+  BadRequestError
 } from '@ticketing-k8s/common';
 
 import { Ticket } from '../models/ticket';
@@ -31,6 +32,10 @@ router.put('/api/tickets/:id',
       throw new NotAuthorizedError();
     }
 
+    if (ticket.orderId) {
+      throw new BadRequestError('Cannot edit a reserved ticket');
+    }
+
     ticket.set({
       title: req.body.title,
       price: req.body.price
@@ -38,6 +43,7 @@ router.put('/api/tickets/:id',
     await ticket.save();
     new TicketUpdatedPublisher(natsWrapper.client).publish({
       id: ticket.id,
+      version: ticket.version,
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,

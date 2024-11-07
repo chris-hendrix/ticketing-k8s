@@ -2,7 +2,9 @@
 @email = user123@test.com
 @password = 12341234
 
-@cookie = session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkzTVdGaU1qTmhaakZoTXpGa01USTRPREkwTTJWaU1pSXNJbVZ0WVdsc0lqb2lkWE5sY2pFeU0wQjBaWE4wTG1OdmJTSXNJbWxoZENJNk1UY3lPVGd3TWpneE1IMC51OEhtLTJINGpmNjhET3dfaFRUZXJpRHhGSC03RWRUY3FRM1JhZlFQYXJZIn0=; path=/; secure; httponly
+@cookie = session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkzTWpkaE1UaGhaakJrT0RjeFlXUTNZemRpT1dGa1lpSXNJbVZ0WVdsc0lqb2lkWE5sY2pFeU0wQjBaWE4wTG1OdmJTSXNJbWxoZENJNk1UY3pNRFkxTURVd05uMC5fMURjN0staFdGdVBBbHFsQUNiT213MzhVLW93SnhVLVpnTzFDRTlFYW9nIn0=; path=/; secure; httponly
+
+@id = 6727a2129de48a52b9602659
 
 ### POST signup
 POST {{url}}/users/signup
@@ -24,4 +26,14 @@ Content-Type: application/json
 {
     "title": "title",
     "price": 10
+}
+
+### PUT ticket
+PUT {{url}}/tickets/{{id}}
+Cookie: {{cookie}}
+Content-Type: application/json
+
+{
+    "title": "title",
+    "price": 30
 }
